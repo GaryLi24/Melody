@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const proxy = 'http://185.187.241.50/proxy.pac'
-
 export const neteaseCoreApi = createApi({
   reducerPath: 'neteaseCoreApi',
   baseQuery: fetchBaseQuery({
@@ -12,7 +10,7 @@ export const neteaseCoreApi = createApi({
   }),
   endpoints: builder => ({
     getTopSongs: builder.query({
-      query: id => `/top/song${id ? `?type=${id}` : ''}?proxy=${proxy}`,
+      query: id => `/top/song${id ? `?type=${id}` : ''}`,
     }),
     getTopArtists: builder.query({ query: () => '/toplist/artist' }),
     getSongDetails: builder.query({
@@ -36,9 +34,6 @@ export const neteaseCoreApi = createApi({
     getSongsBySearch: builder.query({
       query: keyword => `/search?keywords=${keyword}`,
     }),
-    // getTopSongs: builder.query({
-    //   query: () => `/toplist/artist`,
-    // }),
   }),
 })
 
@@ -53,7 +48,3 @@ export const {
   useGetRecommendedSongsQuery,
   useGetSongsBySearchQuery,
 } = neteaseCoreApi
-// discover新歌速递  top/song
-// 推荐音乐 /personalized/newsong
-// 歌手榜 /toplist/artist
-// 热歌榜 /playlist/detail?id=3778678
