@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const neteaseCoreApi = createApi({
   reducerPath: 'neteaseCoreApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://music-api-two-beta.vercel.app',
+    baseUrl: 'https://melody.garyli.cn/',
     prepareHeaders: headers => {
       return headers
     },
